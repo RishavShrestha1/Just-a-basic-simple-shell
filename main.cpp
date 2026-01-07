@@ -95,7 +95,11 @@ void run_change_directory() {
     }
 }
 
-void show_dir_content(const fs::path &dir_path){
+void show_dir_content(){
+    fs::path dir_path;
+    std::cout << "Directory : ";
+    std::cin >> dir_path;
+
     try{
         for(auto &content : fs::directory_iterator(dir_path)) {
             std::cout << content.path().filename() <<std::endl;
