@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "build",
+    "type": "shell",
+    "command": "g++",
+    "args": [
+      "${file}",
+      "-o", "${fileDirname}/build/${fileBasenameNoExtension}.exe",
+      "-ID:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/include",
+      "-LD:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/lib",
+      "-lmingw32", "-lSDL2main", "-lSDL2",
+      "-Dmain=SDL_main"
+    ],
+    "group": { "kind": "build", "isDefault": true }
+  }]
+}

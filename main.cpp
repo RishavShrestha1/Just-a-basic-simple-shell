@@ -1,6 +1,7 @@
+#include <SDL2/SDL.h>
 #include "features.h"
 
-int main(){
+int main(int argc, char* argv[]){
     std::string line;
     bool is_running = true;
 
