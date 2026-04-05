@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "D:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/include",
                 "D:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/include/SDL2",
-                "D:/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include"
+                "D:/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include",
+                "D:/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include/SDL2"
             ],
             "defines": [
                 "_DEBUG",
