@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "build",
+    "type": "shell",
+    "command": "g++",
+    "args": [
+      "${file}",
+      "-o", "${fileDirname}/build/${fileBasenameNoExtension}.exe",
+      "-ID:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/include", 
+      "-ID:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/include/SDL2", 
+      "-LD:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/lib", 
+      "-LD:/SDL2-devel-2.32.0-mingw/SDL2/x86_64-w64-mingw32/lib/SDL2", 
+      "-ID:/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include",
+      "-LD:/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32/lib/SDL2",
+      "-lmingw32", "-lSDL2main", "-lSDL2", "-lSDL2_ttf",
+      "-Dmain=SDL_main"
+    ],
+    "group": { "kind": "build", "isDefault": true }
+  }]
+}
