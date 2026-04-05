@@ -19,6 +19,11 @@ bool init(){
         initialized = false;
     }
 
+    if(TTF_Init < 0) {
+        std::cerr << "Failed to initialize SDL_ttf! TTF_ERROR : "<<TTF_GetError() <<std::endl;
+        initialized = false;
+    }
+
     else{
         shellWindow = SDL_CreateWindow("shell", SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGTH,SDL_WINDOW_SHOWN);
         shellRenderer = SDL_CreateRenderer(shellWindow, -1, SDL_RENDERER_ACCELERATED);
