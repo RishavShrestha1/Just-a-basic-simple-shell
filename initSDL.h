@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include <D:/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h>
+#include "D:/SDL2_ttf-devel-2.24.0-mingw/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h"
 #include <iostream>
 
 bool init();
@@ -46,4 +46,5 @@ void close() {
     shellWindow = NULL;
     SDL_DestroyRenderer(shellRenderer);
     SDL_Quit();
+    TTF_Quit();
 }
