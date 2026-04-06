@@ -1,3 +1,4 @@
+#include <SDL2/SDL.h>
 #include "features.h"
 #include "initSDL.h"
 
@@ -5,6 +6,7 @@ int main(int argc, char* argv[]){
 
     if(!init()) {
         std::cerr << "Failed to initialize! SDL_ERROR : "<<SDL_GetError()<<std::endl;
+        return 1;
     }
 
     else{
@@ -12,7 +14,7 @@ int main(int argc, char* argv[]){
         bool quit = false;
         while(quit == false){
             while(SDL_PollEvent(&ev)){
-                if(ev.type = SDL_QUIT){
+                if(ev.type == SDL_QUIT){
                     quit = true;
                 }
             }
@@ -21,6 +23,7 @@ int main(int argc, char* argv[]){
         close();
         return 0;
     }
+}
     // std::string line;
     // bool is_running = true;
 
@@ -80,4 +83,4 @@ int main(int argc, char* argv[]){
     // }
 
     // return 0;
-}
+
