@@ -26,7 +26,7 @@ bool init() {
     }
 
     else{
-        shellWindow = SDL_CreateWindow("shell", SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGTH, SDL_WINDOW_SHOWN);
+        shellWindow = SDL_CreateWindow("shell", SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
         shellRenderer = SDL_CreateRenderer(shellWindow, -1, SDL_RENDERER_ACCELERATED);
         if(shellWindow == NULL || shellRenderer == NULL){
             std::cerr << "Unable to create window and/or renderer! SDL_ERROR : "<<SDL_GetError()<<std::endl;
