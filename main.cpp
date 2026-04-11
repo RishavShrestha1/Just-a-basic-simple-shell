@@ -5,6 +5,7 @@ int main(int argc, char* argv[]){
 
     if(!init()) {
         std::cerr << "Failed to initialize! SDL_ERROR : "<<SDL_GetError()<<std::endl;
+        return 0;
     }
 
     else{
@@ -12,7 +13,7 @@ int main(int argc, char* argv[]){
         bool quit = false;
         while(quit == false){
             while(SDL_PollEvent(&ev)){
-                if(ev.type = SDL_QUIT){
+                if(ev.type == SDL_QUIT){
                     quit = true;
                 }
             }
