@@ -6,11 +6,7 @@ int main(int argc, char* argv[]){
 
     if(!init()) {
         std::cerr << "Failed to initialize! SDL_ERROR : "<<SDL_GetError()<<std::endl;
-<<<<<<< HEAD
         return 1;
-=======
-        return 0;
->>>>>>> testing
     }
 
     else{
