@@ -19,7 +19,7 @@ bool init(){
         initialized = false;
     }
 
-    if(TTF_Init < 0) {
+    if(TTF_Init != 0) {
         std::cerr << "Failed to initialize SDL_ttf! TTF_ERROR : "<<TTF_GetError() <<std::endl;
         initialized = false;
     }
