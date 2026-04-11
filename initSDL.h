@@ -7,44 +7,40 @@ void close();
 
 SDL_Window* shellWindow = NULL;
 SDL_Renderer* shellRenderer = NULL;
-SDL_Surface* surfScreen = NULL;
 
-bool init(){
-    const int SCREEN_WIDTH = 740;
-    const int SCREEN_HEIGTH = 450;
+const int SCREEN_WIDTH = 740;
+const int SCREEN_HEIGHT = 450;
+
+bool init() {
     bool initialized = true;
 
-    if(SDL_Init(SDL_INIT_VIDEO) < 0) {
-        std::cerr << "Failed to initialize Video! SDL_ERROR :"<<SDL_GetError() <<std::endl;
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        std::cerr << "Failed to initialize SDL! SDL_ERROR: " << SDL_GetError() << std::endl;
         initialized = false;
     }
 
-    if(TTF_Init() < 0) {
-        std::cerr << "Failed to initialize SDL_ttf! TTF_ERROR : "<<TTF_GetError() <<std::endl;
+    if (TTF_Init() < 0) {
+        std::cerr << "Failed to initialize SDL_ttf! TTF_ERROR: " << TTF_GetError() << std::endl;
         initialized = false;
     }
 
-    else{
-        shellWindow = SDL_CreateWindow("shell", SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGTH,SDL_WINDOW_SHOWN);
-        shellRenderer = SDL_CreateRenderer(shellWindow, -1, SDL_RENDERER_ACCELERATED);
-        if(shellWindow == NULL || shellRenderer == NULL){
-            std::cerr << "Unable to create window and/or renderer! SDL_ERROR : "<<SDL_GetError()<<std::endl;
-            initialized = false;
-        }
-        else{
+    shellWindow = SDL_CreateWindow("shell", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
-            surfScreen = SDL_GetWindowSurface(shellWindow);
+    shellRenderer = SDL_CreateRenderer(shellWindow, -1, SDL_RENDERER_ACCELERATED);
 
-        }
-
+    if (shellWindow == NULL || shellRenderer == NULL) {
+        std::cerr << "Unable to create window/renderer! SDL_ERROR: " << SDL_GetError() << std::endl;
+        initialized = false;
     }
+
     return initialized;
 }
 
 void close() {
+    SDL_DestroyRenderer(shellRenderer);
+    shellRenderer = NULL;
     SDL_DestroyWindow(shellWindow);
     shellWindow = NULL;
-    SDL_DestroyRenderer(shellRenderer);
-    SDL_Quit();
     TTF_Quit();
+    SDL_Quit();
 }
